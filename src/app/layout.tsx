@@ -2,11 +2,13 @@ import {
   Sidebar,
   SidebarMenu,
   SidebarMenuHeader,
-  SidebarMenuItem,
   SidebarMenuItems,
   SidebarTitle,
 } from "@/_comp/ui/Sidebar";
-import { FilePieChartIcon } from "lucide-react";
+import { allPosts } from "contentlayer/generated";
+import Link from "next/link";
+
+import "@/styles/code-atom-dark.css";
 import "../styles.css";
 
 export const metadata = {
@@ -28,14 +30,16 @@ export default function RootLayout({
             <SidebarMenu>
               <SidebarMenuHeader>Components</SidebarMenuHeader>
               <SidebarMenuItems>
-                <SidebarMenuItem>
-                  <FilePieChartIcon size={20} />
-                  <span>Button</span>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <FilePieChartIcon size={20} />
-                  <span>Card</span>
-                </SidebarMenuItem>
+                {allPosts.map((doc) => (
+                  <li key={doc._id}>
+                    <Link
+                      href={doc.url}
+                      className="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-white/10 text-sm text-white"
+                    >
+                      <span>{doc.title}</span>
+                    </Link>
+                  </li>
+                ))}
               </SidebarMenuItems>
             </SidebarMenu>
           </Sidebar>
