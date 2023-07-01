@@ -2,7 +2,6 @@
 
 import * as Collapsible from "@radix-ui/react-collapsible";
 import { FileJson2Icon } from "lucide-react";
-import Prism from "prismjs";
 import * as React from "react";
 
 type PreviewProps = {
@@ -24,12 +23,6 @@ export function Preview({ children, example, vn }: PreviewProps) {
     Code.props.children
   )[0] as React.ReactElement;
 
-  const html = Prism.highlight(
-    Nui.props.children,
-    Prism.languages.javascript,
-    "javascript"
-  );
-
   return (
     <Collapsible.Root
       className="not-prose mb-5"
@@ -37,7 +30,7 @@ export function Preview({ children, example, vn }: PreviewProps) {
       onOpenChange={setOpen}
     >
       <div className="min-h-[100px] rounded-xl border border-black/10 relative p-3">
-        <div className="grid place-content-center min-h-[100px]">
+        <div className="flex items-center justify-center min-h-[100px]">
           {vn && (
             <div className="absolute top-3 left-3 text-xs uppercase font-semibold text-black/80 bg-black/10 px-2 py-1 rounded-md">
               {vn}
@@ -49,10 +42,7 @@ export function Preview({ children, example, vn }: PreviewProps) {
         </div>
         <Collapsible.Content>
           <pre className="bg-[#1f2937] text-base p-4 rounded-xl mt-5">
-            <code
-              className="language-javascript"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
+            <code>{Nui.props.children}</code>
           </pre>
         </Collapsible.Content>
 

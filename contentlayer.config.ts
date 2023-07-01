@@ -1,6 +1,7 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import fs from "node:fs";
 import path from "node:path";
+import rehypePrettyCode from "rehype-pretty-code";
 import { u } from "unist-builder";
 import { visit } from "unist-util-visit";
 
@@ -63,14 +64,10 @@ function rehypePreviews() {
   };
 }
 
-function getNodeAttributeByName(node: Node, name: string) {
-  return node.attributes?.find((attribute) => attribute.name === name);
-}
-
 export default makeSource({
   contentDirPath: "src/docs",
   documentTypes: [Post],
   mdx: {
-    rehypePlugins: [rehypePreviews],
+    rehypePlugins: [rehypePreviews, [rehypePrettyCode, { theme: "dracula" }]],
   },
 });

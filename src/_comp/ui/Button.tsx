@@ -3,7 +3,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
 
 export const createButtonVariants = cva(
-  "inline-flex text-sm font-semibold shadow-sm border transition-colors focus:outline-none rounded focus:ring",
+  "inline-flex font-semibold shadow-sm border transition-colors focus:outline-none rounded focus:ring",
   {
     variants: {
       variant: {
@@ -13,9 +13,9 @@ export const createButtonVariants = cva(
           "border-zinc-150 bg-white text-zinc-800 hover:bg-zinc-50 hover:text-zinc-900 focus:ring-zinc-100",
       },
       size: {
-        lg: "py-3 px-6",
-        base: "py-2 px-4",
-        sm: "py-1 px-3",
+        lg: "py-3 px-6 text-base",
+        base: "py-2 px-4 text-sm",
+        sm: "py-1 px-2 text-xs",
       },
     },
     defaultVariants: {
