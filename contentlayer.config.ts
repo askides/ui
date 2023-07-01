@@ -68,6 +68,10 @@ export default makeSource({
   contentDirPath: "src/docs",
   documentTypes: [Post],
   mdx: {
-    rehypePlugins: [rehypePreviews, [rehypePrettyCode, { theme: "dracula" }]],
+    rehypePlugins: [
+      rehypePreviews,
+      [rehypePrettyCode, { theme: "github-dark" }],
+    ],
   },
 });
+// material-theme

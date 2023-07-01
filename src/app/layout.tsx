@@ -34,12 +34,25 @@ export default function RootLayout({
                   <li key={doc._id}>
                     <Link
                       href={doc.url}
-                      className="flex items-center gap-3 rounded-lg px-3 py-1 hover:underline font-medium text-sm text-black"
+                      className="flex items-center gap-3 rounded-lg px-3 py-0.5 hover:underline font-base text-sm text-zinc-500"
                     >
                       <span>{doc.title}</span>
                     </Link>
                   </li>
                 ))}
+              </SidebarMenuItems>
+            </SidebarMenu>
+            <SidebarMenu className="mt-5">
+              <SidebarMenuHeader>Charts</SidebarMenuHeader>
+              <SidebarMenuItems>
+                <li>
+                  <Link
+                    href="/docs/bar-chart"
+                    className="flex items-center gap-3 rounded-lg px-3 py-0.5 hover:underline font-base text-sm text-zinc-500"
+                  >
+                    <span>Bar Chart</span>
+                  </Link>
+                </li>
               </SidebarMenuItems>
             </SidebarMenu>
           </Sidebar>

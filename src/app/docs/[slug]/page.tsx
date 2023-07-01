@@ -27,7 +27,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         </p>
       </div>
 
-      <article className="prose prose-h2:mb-0 prose-p:font-light">
+      <article className="prose prose-h2:mb-0 prose-p:font-light max-w-2xl">
         {/* @ts-ignore */}
         <MDXContent components={MDXComponents} />
       </article>

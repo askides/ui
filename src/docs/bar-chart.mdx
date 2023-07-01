@@ -1,0 +1,31 @@
+---
+title: Bar Chart
+description: Display a bar chart skeleton.
+---
+
+<Preview example="barchart-default" />
+
+## Anatomy
+
+Here's how the component can be composed.
+
+```tsx
+() => (
+  <BarChart>
+    <BarChartColumn />
+  </BarChart>
+);
+```
+
+To ensure the highest flexibility, the chart renders rows as children so you can
+decide to loop through a list or put the rows manually. There is a utility I
+made called `createSmoothValues` to help the developer create a smoother array
+of values to ensure the placeholder will be always nice to see.
+
+## Examples
+
+Take a peek below to uncover a bunch of interesting examples.
+
+<Preview example="barchart-lines" />
+
+<Preview example="barchart-animate" />

@@ -37,9 +37,23 @@ export const SidebarTitle = React.forwardRef<HTMLDivElement, SidebarTitleProps>(
 
 SidebarTitle.displayName = "SidebarTitle";
 
-export function SidebarMenu({ children }: { children: React.ReactNode }) {
-  return <div data-role="sidebar-menu">{children}</div>;
-}
+export interface SidebarMenuProps
+  extends React.HTMLAttributes<HTMLDivElement> {}
+
+export const SidebarMenu = React.forwardRef<HTMLDivElement, SidebarMenuProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <div
+        className={cn(className)}
+        data-role="sidebar-menu"
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
+
+SidebarMenu.displayName = "SidebarMenu";
 
 export interface SidebarMenuHeaderProps
   extends React.HTMLAttributes<HTMLDivElement> {}
@@ -51,7 +65,7 @@ export const SidebarMenuHeader = React.forwardRef<
   return (
     <div
       className={cn(
-        "px-3 py-2 text-xs font-semibold tracking-tighter text-black/70 uppercase",
+        "px-3 py-2 text-xs font-bold tracking-tighter text-zinc-800 uppercase",
         className
       )}
       ref={ref}
