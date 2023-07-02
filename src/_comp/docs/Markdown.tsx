@@ -12,6 +12,7 @@ export function Markdown({ mdx }: { mdx: string }) {
 
   return (
     <article className="prose prose-h2:mb-2 prose-p:font-light max-w-2xl">
+      {/* @ts-ignore */}
       <Comp components={MDXComponents} />
     </article>
   );
