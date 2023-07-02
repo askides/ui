@@ -1,7 +1,10 @@
 import Link from "next/link";
 
+import { Drawer, Sidebar } from "@/_comp/docs/Sidebar";
+import { createButtonVariants } from "@/_comp/ui/Button";
+import { cn } from "@/lib/utils";
 import "@/styles/code-atom-dark.css";
-import { GithubIcon, HeartIcon } from "lucide-react";
+import { GithubIcon } from "lucide-react";
 import "../styles.css";
 
 export const metadata = {
@@ -12,19 +15,6 @@ export const metadata = {
   },
 };
 
-function Item({ label, href }: { label: string; href: string }) {
-  return (
-    <li>
-      <Link
-        href={href}
-        className="flex items-center gap-3 rounded-lg px-3 py-0.5 font-base text-sm text-zinc-500 hover:text-violet-500 transition-colors duration-150"
-      >
-        <span>{label}</span>
-      </Link>
-    </li>
-  );
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -33,63 +23,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="fixed bottom-0 left-0 right-0 top-0 flex gap-2 bg-white px-2">
-          <aside className="border-r w-56 overflow-y-auto">
-            <div className="py-4 flex items-center justify-between gap-3 px-3 text-lg font-semibold text-black">
-              <Link href="/">askides/ui</Link>
-              <Link
-                href="https://github.com/askides/ui"
-                className="hover:text-violet-500 transition-colors duration-150"
-              >
-                <GithubIcon size={20} />
+        <div className="md:fixed bottom-0 left-0 right-0 top-0 md:flex gap-2 bg-white">
+          <nav className="sticky z-20 top-0 bg-white flex items-center justify-between md:hidden px-5 h-20 border-b">
+            <div className="flex items-center gap-4">
+              <Drawer />
+              <Link href="/" className="font-semibold text-lg">
+                askides/ui
               </Link>
             </div>
-            <div data-role="sidebar-menu">
-              <div className="px-3 py-2 text-xs font-bold tracking-tighter text-zinc-800 uppercase">
-                Introduction
-              </div>
-              <ul className="space-y-1">
-                <Item label="Getting Started" href="/" />
-              </ul>
-            </div>
-            <div data-role="sidebar-menu" className="mt-5">
-              <div className="px-3 py-2 text-xs font-bold tracking-tighter text-zinc-800 uppercase">
-                Components
-              </div>
-              <ul className="space-y-1">
-                <Item label="Button" href="/docs/button" />
-                <Item label="Card" href="/docs/card" />
-                <Item label="Input" href="/docs/input" />
-                <Item label="Label" href="/docs/label" />
-                <Item label="Select" href="/docs/select" />
-                <Item label="Textarea" href="/docs/textarea" />
-              </ul>
-            </div>
-            <div data-role="sidebar-menu" className="mt-5">
-              <div className="px-3 py-2 text-xs font-bold tracking-tighter text-zinc-800 uppercase">
-                Charts
-              </div>
-              <ul className="space-y-1">
-                <Item label="Bar Chart" href="/docs/bar-chart" />
-              </ul>
-            </div>
-            <div data-role="sidebar-menu" className="mt-5">
-              <div className="px-3 py-2 text-xs font-bold tracking-tighter text-zinc-800 uppercase">
-                Ideas
-              </div>
-              <ul className="space-y-1">
-                <li>
-                  <Link
-                    href="https://github.com/askides/ui/issues/new"
-                    className="flex rounded-lg px-3 py-0.5 gap-1.5 hover:underline items-center font-medium text-sm text-violet-500"
-                  >
-                    <span>Drop Yours!</span>
-                    <HeartIcon size={16} />
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </aside>
+            <Link
+              href="https://github.com/askides/ui"
+              className={cn(
+                createButtonVariants({ variant: "secondary", className: "p-2" })
+              )}
+            >
+              <GithubIcon />
+            </Link>
+          </nav>
+          <Sidebar />
           {children}
         </div>
       </body>
