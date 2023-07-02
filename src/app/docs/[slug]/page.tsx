@@ -1,22 +1,10 @@
 "use client";
 
-import { Preview } from "@/_comp/docs/Preview";
-import { Button } from "@/_comp/ui/Button";
-import { allPosts } from "contentlayer/generated";
-// import type { MDXComponents } from 'mdx/types'
-import { useMDXComponent } from "next-contentlayer/hooks";
-
-const MDXComponents = {
-  Button,
-  Preview,
-};
+import { Markdown } from "@/_comp/docs/Markdown";
+import { fetchDocOrFail } from "@/lib/content";
 
 export default function Page({ params }: { params: { slug: string } }) {
-  const doc = allPosts.find((post) => post._raw.flattenedPath === params.slug);
-
-  if (!doc) throw new Error(`Post not found for slug: ${params.slug}`);
-
-  const MDXContent = useMDXComponent(doc.body.code);
+  const doc = fetchDocOrFail(params.slug);
 
   return (
     <div className="h-full flex-1 overflow-y-auto bg-white px-10 py-8">
@@ -27,10 +15,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         </p>
       </div>
 
-      <article className="prose prose-h2:mb-0 prose-p:font-light max-w-2xl">
-        {/* @ts-ignore */}
-        <MDXContent components={MDXComponents} />
-      </article>
+      <Markdown mdx={doc.body.code} />
     </div>
   );
 }
