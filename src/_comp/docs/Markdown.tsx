@@ -1,3 +1,5 @@
+"use client";
+
 import { Preview } from "@/_comp/docs/Preview";
 import { useMDXComponent } from "next-contentlayer/hooks";
 

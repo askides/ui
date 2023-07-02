@@ -1,5 +1,3 @@
-"use client";
-
 import { Markdown } from "@/_comp/docs/Markdown";
 import { fetchDocOrFail } from "@/lib/content";
 

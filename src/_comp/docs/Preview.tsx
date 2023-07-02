@@ -40,6 +40,7 @@ export function Preview({ children, example, vn }: PreviewProps) {
             <LazyComponent />
           </React.Suspense>
         </div>
+
         <Collapsible.Content>
           <pre className="bg-zinc-900 overflow-x-auto text-sm p-4 rounded-xl mt-2">
             <code>{Nui.props.children}</code>
