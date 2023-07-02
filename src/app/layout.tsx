@@ -1,10 +1,9 @@
-import Link from "next/link";
-
 import { Drawer, Sidebar } from "@/_comp/docs/Sidebar";
 import { createButtonVariants } from "@/_comp/ui/Button";
 import { cn } from "@/lib/utils";
-import "@/styles/code-atom-dark.css";
 import { GithubIcon } from "lucide-react";
+import Link from "next/link";
+
 import "../styles.css";
 
 export const metadata = {
