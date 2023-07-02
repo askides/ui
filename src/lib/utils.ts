@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export function createSmoothValues(
   nob = 20,
-  options?: { mh: number; sd: number; mean: number }
+  options?: { mh?: number; sd?: number; mean?: number }
 ) {
   const mh = options?.mh ?? 75;
   const mean = options?.mean ?? mh / 1.5;

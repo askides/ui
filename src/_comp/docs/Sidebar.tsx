@@ -3,6 +3,8 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { GithubIcon, MenuIcon } from "lucide-react";
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
+import * as React from "react";
 import { Button } from "../ui/Button";
 
 function Item({ label, href }: { label: string; href: string }) {
@@ -87,8 +89,16 @@ export function Sidebar() {
 }
 
 export function Drawer() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [open, setOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    setOpen(false);
+  }, [pathname, searchParams]);
+
   return (
-    <Dialog.Root>
+    <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
         <Button variant="secondary" className="p-2">
           <MenuIcon />

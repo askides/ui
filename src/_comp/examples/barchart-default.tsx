@@ -4,7 +4,7 @@ import { createSmoothValues } from "@/lib/utils";
 import * as React from "react";
 
 export default function BarChartDefault() {
-  const values = React.useMemo(() => createSmoothValues(30), []);
+  const values = React.useMemo(() => createSmoothValues(20), []);
 
   return (
     <Card className="flex items-center justify-center h-64 relative px-5 w-full">

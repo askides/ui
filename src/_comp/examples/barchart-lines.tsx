@@ -4,16 +4,16 @@ import { createSmoothValues } from "@/lib/utils";
 import * as React from "react";
 
 export default function BarChartLines() {
-  const values = React.useMemo(() => createSmoothValues(70), []);
+  const values = React.useMemo(() => createSmoothValues(40), []);
 
   return (
-    <Card className="flex items-center justify-center h-64 relative px-5 w-full">
+    <Card className="flex items-center justify-center h-64 relative px-2 w-full">
       <span className="absolute top-5 left-5 text-zinc-500 font-base">
         Loading Many Bars...
       </span>
       <BarChart>
         {values.map((value, idx) => (
-          <BarChartColumn className="mx-0.5" key={idx} value={value} />
+          <BarChartColumn className="mx-px" key={idx} value={value} />
         ))}
       </BarChart>
     </Card>

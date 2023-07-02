@@ -4,13 +4,10 @@ import { createSmoothValues } from "@/lib/utils";
 import * as React from "react";
 
 export default function BarChartAnimate() {
-  const values = React.useMemo(() => createSmoothValues(40), []);
+  const values = React.useMemo(() => createSmoothValues(20, { mh: 85 }), []);
 
   return (
-    <Card className="flex items-center justify-center h-64 relative px-5 w-full">
-      <span className="absolute top-5 left-5 text-zinc-500 font-base">
-        Hover on a bar...
-      </span>
+    <Card className="flex items-center justify-center h-48 relative px-2 w-full">
       <BarChart>
         {values.map((value, idx) => (
           <BarChartColumn
