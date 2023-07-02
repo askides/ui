@@ -8,7 +8,7 @@ import { GithubIcon } from "lucide-react";
 import "../styles.css";
 
 export const metadata = {
-  metadataBase: new URL("https://askides.vercel.app"),
+  metadataBase: new URL("https://ui.renatopozzi.me"),
   title: "askides/ui",
   description: "Extensible React component library built with TailwindCSS.",
   icons: {
