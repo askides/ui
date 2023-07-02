@@ -3,9 +3,9 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { GithubIcon, MenuIcon } from "lucide-react";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
 import * as React from "react";
 import { Button } from "../ui/Button";
+import { NavigationEvents } from "./NavigationEvents";
 
 function Item({ label, href }: { label: string; href: string }) {
   return (
@@ -89,28 +89,27 @@ export function Sidebar() {
 }
 
 export function Drawer() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [open, setOpen] = React.useState(false);
 
-  React.useEffect(() => {
-    setOpen(false);
-  }, [pathname, searchParams]);
-
   return (
-    <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger asChild>
-        <Button variant="secondary" className="p-2">
-          <MenuIcon />
-        </Button>
-      </Dialog.Trigger>
-      <Dialog.Portal>
-        <Dialog.Overlay className="bg-black/70 fixed z-30 inset-0" />
-        <Dialog.Content className="fixed z-40 top-0 bottom-0 left-0 border-r w-56 overflow-y-auto bg-white">
-          <SidebarContent />
-          {/* <Dialog.Close>Close</Dialog.Close> */}
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+    <>
+      <React.Suspense fallback={null}>
+        <NavigationEvents onNavigate={() => setOpen(false)} />
+      </React.Suspense>
+      <Dialog.Root open={open} onOpenChange={setOpen}>
+        <Dialog.Trigger asChild>
+          <Button variant="secondary" className="p-2">
+            <MenuIcon />
+          </Button>
+        </Dialog.Trigger>
+        <Dialog.Portal>
+          <Dialog.Overlay className="bg-black/70 fixed z-30 inset-0" />
+          <Dialog.Content className="fixed z-40 top-0 bottom-0 left-0 border-r w-56 overflow-y-auto bg-white">
+            <SidebarContent />
+            {/* <Dialog.Close>Close</Dialog.Close> */}
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
+    </>
   );
 }

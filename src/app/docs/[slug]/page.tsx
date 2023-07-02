@@ -1,11 +1,14 @@
 import { Markdown } from "@/_comp/docs/Markdown";
 import { fetchDocOrFail } from "@/lib/content";
+import { allPosts } from "contentlayer/generated";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export const generateStaticParams = async () => {
+  return allPosts
+    .filter((post) => !post._raw.flattenedPath.includes("/"))
+    .map((post) => ({ slug: post._raw.flattenedPath }));
+};
+
+export function generateMetadata({ params }: { params: { slug: string } }) {
   const doc = fetchDocOrFail(params.slug);
 
   return {

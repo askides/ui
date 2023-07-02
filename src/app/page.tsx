@@ -1,7 +1,8 @@
 import { Markdown } from "@/_comp/docs/Markdown";
 import { fetchDocOrFail } from "@/lib/content";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL("https://ui.renatopozzi.me"),
   title: "askides/ui",
   description: "Extensible React component library built with TailwindCSS.",
