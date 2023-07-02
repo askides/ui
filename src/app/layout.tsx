@@ -6,33 +6,6 @@ import Link from "next/link";
 
 import "../styles.css";
 
-export const metadata = {
-  metadataBase: new URL("https://ui.renatopozzi.me"),
-  title: "askides/ui",
-  description: "Extensible React component library built with TailwindCSS.",
-  icons: {
-    icon: "/icon.svg",
-  },
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    title: "askides/ui",
-    description: "Extensible React component library built with TailwindCSS.",
-    url: "/",
-    siteName: "askides/ui",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
-
 export default function RootLayout({
   children,
 }: {

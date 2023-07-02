@@ -1,6 +1,41 @@
 import { Markdown } from "@/_comp/docs/Markdown";
 import { fetchDocOrFail } from "@/lib/content";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const doc = fetchDocOrFail(params.slug);
+
+  return {
+    metadataBase: new URL(`https://ui.renatopozzi.me/docs/${params.slug}`),
+    title: doc.title,
+    description: doc.description,
+    icons: {
+      icon: "/icon.svg",
+    },
+    alternates: {
+      canonical: "/",
+    },
+    openGraph: {
+      title: doc.title,
+      description: doc.description,
+      url: "/",
+      siteName: "askides/ui",
+      images: [
+        {
+          url: "/og.png",
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+  };
+}
+
 export default function Page({ params }: { params: { slug: string } }) {
   const doc = fetchDocOrFail(params.slug);
 
