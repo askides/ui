@@ -12,14 +12,14 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   const doc = fetchDocOrFail(params.slug);
 
   return {
-    metadataBase: new URL(`https://ui.renatopozzi.me/docs/${params.slug}`),
+    metadataBase: new URL("https://ui.renatopozzi.me"),
     title: doc.title,
     description: doc.description,
     icons: {
       icon: "/icon.svg",
     },
     alternates: {
-      canonical: "/",
+      canonical: `/docs/${params.slug}`,
     },
     openGraph: {
       title: doc.title,
