@@ -90,11 +90,12 @@ export function Sidebar() {
 
 export function Drawer() {
   const [open, setOpen] = React.useState(false);
+  const onNavigate = React.useCallback(() => setOpen(false), []);
 
   return (
     <>
       <React.Suspense fallback={null}>
-        <NavigationEvents onNavigate={() => setOpen(false)} />
+        <NavigationEvents onNavigate={onNavigate} />
       </React.Suspense>
       <Dialog.Root open={open} onOpenChange={setOpen}>
         <Dialog.Trigger asChild>
