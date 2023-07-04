@@ -45,6 +45,7 @@ function SidebarContent() {
           Components
         </div>
         <ul className="space-y-1">
+          <Item label="Alert" href="/docs/alert" />
           <Item label="Button" href="/docs/button" />
           <Item label="Card" href="/docs/card" />
           <Item label="Input" href="/docs/input" />

@@ -3,7 +3,7 @@ import { Select } from "@/_comp/ui/Select";
 
 export default function SelectLabel() {
   return (
-    <div className="w-full max-w-sm space-y-1">
+    <div className="space-y-1 w-full">
       <Label>Choose Your Favorite Language</Label>
       <Select>
         <option hidden>Select...</option>

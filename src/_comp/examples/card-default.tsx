@@ -2,7 +2,7 @@ import { Card, CardBody, CardHeader, CardTitle } from "@/_comp/ui/Card";
 
 export default function CardDefault() {
   return (
-    <Card className="max-w-md">
+    <Card>
       <CardHeader>
         <CardTitle>Hello There!</CardTitle>
       </CardHeader>

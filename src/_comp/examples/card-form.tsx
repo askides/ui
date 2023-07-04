@@ -5,7 +5,7 @@ import { Button } from "../ui/Button";
 
 export default function CardForm() {
   return (
-    <Card className="max-w-md w-full">
+    <Card>
       <CardHeader>
         <CardTitle>Social Links</CardTitle>
       </CardHeader>

@@ -29,8 +29,8 @@ export function Preview({ children, example, vn }: PreviewProps) {
       open={open}
       onOpenChange={setOpen}
     >
-      <div className="min-h-[150px] rounded-xl border border-black/10 relative p-3">
-        <div className="flex items-center w-full justify-center min-h-[150px] py-12">
+      <div className="min-h-[250px] rounded-xl border border-black/10 relative p-3">
+        <div className="flex items-center w-full justify-center min-h-[250px] py-12 px-3 md:px-10">
           {vn && (
             <div className="absolute top-3 left-3 text-xs uppercase font-semibold text-black/80 bg-black/10 px-2 py-1 rounded-md">
               {vn}
