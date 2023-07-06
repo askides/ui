@@ -8,7 +8,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         className={cn(
-          "bg-white border border-zinc-100 rounded-sm w-full",
+          "bg-white border border-zinc-150 rounded-3xl overflow-hidden shadow-sm w-full",
           className
         )}
         ref={ref}
@@ -26,7 +26,7 @@ const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ className, ...props }, ref) => {
     return (
       <div
-        className={cn("bg-white border-b border-zinc-100 py-4 px-5", className)}
+        className={cn("bg-white border-zinc-100 pb-2 pt-5 px-5", className)}
         ref={ref}
         {...props}
       />
@@ -42,7 +42,10 @@ const CardBody = React.forwardRef<HTMLDivElement, CardBodyProps>(
   ({ className, ...props }, ref) => {
     return (
       <div
-        className={cn("bg-white py-4 px-5", className)}
+        className={cn(
+          "bg-white text-sm leading-relaxed pb-5 px-5 text-zinc-500",
+          className
+        )}
         ref={ref}
         {...props}
       />
@@ -59,7 +62,7 @@ const CardTitle = React.forwardRef<HTMLHeadingElement, CardTitleProps>(
   ({ className, ...props }, ref) => {
     return (
       <h3
-        className={cn("text-md font-semibold text-zinc-800", className)}
+        className={cn("font-semibold text-lg text-zinc-800", className)}
         ref={ref}
         {...props}
       />
@@ -69,24 +72,4 @@ const CardTitle = React.forwardRef<HTMLHeadingElement, CardTitleProps>(
 
 CardTitle.displayName = "CardTitle";
 
-export interface CardDescProps
-  extends React.HTMLAttributes<HTMLParagraphElement> {}
-
-const CardDesc = React.forwardRef<HTMLParagraphElement, CardDescProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <p
-        className={cn(
-          "mt-1 text-sm font-medium text-gray-500 dark:text-gray-500",
-          className
-        )}
-        ref={ref}
-        {...props}
-      />
-    );
-  }
-);
-
-CardDesc.displayName = "CardDesc";
-
-export { Card, CardBody, CardDesc, CardHeader, CardTitle };
+export { Card, CardBody, CardHeader, CardTitle };

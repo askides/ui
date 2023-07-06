@@ -13,7 +13,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
 
   return {
     metadataBase: new URL("https://ui.renatopozzi.me"),
-    title: doc.title,
+    title: `${doc.title} - askides/ui`,
     description: doc.description,
     icons: {
       icon: "/icon.svg",

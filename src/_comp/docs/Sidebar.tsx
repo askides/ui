@@ -48,6 +48,7 @@ function SidebarContent() {
           <Item label="Alert" href="/docs/alert" />
           <Item label="Button" href="/docs/button" />
           <Item label="Card" href="/docs/card" />
+          <Item label="Checkbox" href="/docs/checkbox" />
           <Item label="Input" href="/docs/input" />
           <Item label="Label" href="/docs/label" />
           <Item label="Select" href="/docs/select" />
@@ -60,6 +61,14 @@ function SidebarContent() {
         </div>
         <ul className="space-y-1">
           <Item label="Bar Chart" href="/docs/bar-chart" />
+        </ul>
+      </div>
+      <div data-role="sidebar-menu" className="mt-5">
+        <div className="px-5 py-2 text-xs font-bold tracking-tighter text-zinc-800 uppercase">
+          Examples
+        </div>
+        <ul className="space-y-1">
+          <Item label="Sign up" href="/examples/signup" />
         </ul>
       </div>
       <div data-role="sidebar-menu" className="mt-5">

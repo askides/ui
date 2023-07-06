@@ -9,7 +9,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       <div
         role="alert"
         className={cn(
-          "border-zinc-150 focus:ringfocus:ring-zinc-100 inline-flex items-center gap-5 w-full rounded border bg-white px-5 py-4 shadow-sm",
+          "border-zinc-150 inline-flex items-center gap-5 w-full rounded-3xl border bg-white px-5 py-4 shadow-sm",
           className
         )}
         ref={ref}
@@ -44,7 +44,7 @@ const AlertHead = React.forwardRef<HTMLDivElement, AlertHeadProps>(
   ({ className, ...props }, ref) => {
     return (
       <div
-        className={cn("text-sm font-semibold text-zinc-800", className)}
+        className={cn("font-semibold leading-tight text-zinc-800", className)}
         ref={ref}
         {...props}
       />
@@ -60,7 +60,7 @@ const AlertBody = React.forwardRef<HTMLDivElement, AlertBodyProps>(
   ({ className, ...props }, ref) => {
     return (
       <div
-        className={cn("text-sm font-light text-zinc-800", className)}
+        className={cn("text-sm text-zinc-500", className)}
         ref={ref}
         {...props}
       />

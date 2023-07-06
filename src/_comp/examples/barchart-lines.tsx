@@ -7,7 +7,7 @@ export default function BarChartLines() {
   const values = React.useMemo(() => createSmoothValues(40), []);
 
   return (
-    <Card className="flex items-center justify-center h-64 relative px-2 w-full">
+    <Card className="flex items-center justify-center h-64 relative px-2 rounded-none w-full">
       <span className="absolute top-5 left-5 text-zinc-500 font-base">
         Loading Many Bars...
       </span>

@@ -1,16 +1,20 @@
 import { Card, CardBody, CardHeader, CardTitle } from "@/_comp/ui/Card";
+import { Button } from "../ui/Button";
 
 export default function CardDefault() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Hello There!</CardTitle>
+        <CardTitle>We Love Cookies</CardTitle>
       </CardHeader>
-      <CardBody>
-        <p className="text-sm text-zinc-800 leading-relaxed">
-          Greetings, visitors! Prepare for a card-tastic adventure full of
-          whimsy and laughter. Enjoy the magic! ✨🃏
+      <CardBody className="space-y-5">
+        <p>
+          Regarding cookies, the good and crunchy ones are excluded from the
+          conversation. These cookies ensure the security of our site, improve
+          the user experience, and display relevant ads. They will only be
+          activated with your consent.
         </p>
+        <Button className="rounded-xl justify-center w-full">Confirm</Button>
       </CardBody>
     </Card>
   );

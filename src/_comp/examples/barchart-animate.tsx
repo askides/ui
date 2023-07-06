@@ -7,7 +7,7 @@ export default function BarChartAnimate() {
   const values = React.useMemo(() => createSmoothValues(20, { mh: 85 }), []);
 
   return (
-    <Card className="flex items-center justify-center h-48 relative px-2 w-full">
+    <Card className="flex items-center justify-center h-48 relative rounded-none px-2 w-full">
       <BarChart>
         {values.map((value, idx) => (
           <BarChartColumn
