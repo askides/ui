@@ -12,9 +12,6 @@ export function NavigationEvents({ onNavigate }: NavigationEventProps) {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const url = `${pathname}?${searchParams}`;
-    console.log(url);
-    // You can now use the current URL
     onNavigate();
   }, [onNavigate, pathname, searchParams]);
 
