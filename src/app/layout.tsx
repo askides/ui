@@ -13,6 +13,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          defer
+          type="text/javascript"
+          src="https://api.pirsch.io/pirsch.js"
+          id="pirschjs"
+          data-code="mDKxLKdCSIl8daXaYNNiI6GTPh2DTDH9"
+        />
+      </head>
       <body>
         <div className="md:fixed bottom-0 left-0 right-0 top-0 md:flex gap-2 bg-white">
           <nav className="sticky z-20 top-0 bg-white flex items-center justify-between md:hidden px-5 h-20 border-b">
